@@ -32,6 +32,7 @@ class _CartPageScreenState extends State<CartPageScreen> {
                 return Card(
                   child: ListTile(
                     onTap: () {
+                      setState(() {});
                       cartBloc.add(RemoveItems(
                           product: state.cartItems.keys.elementAt(index)));
                     },
