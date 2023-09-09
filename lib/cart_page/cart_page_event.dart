@@ -20,8 +20,8 @@ class RemoveFromCart extends CartPageEvent {
 }
 
 class FilterCart extends CartPageEvent {
-  final int? maxValue;
-  final int? minValue;
+  final double? maxValue;
+  final double? minValue;
 
   const FilterCart({this.maxValue, this.minValue});
   @override

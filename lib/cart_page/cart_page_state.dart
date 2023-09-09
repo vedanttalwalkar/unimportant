@@ -5,8 +5,8 @@ import '../product.dart';
 class CartPageState extends Equatable {
   final int version;
   final Map<Product, int> cartItems;
-  final int? maxValue;
-  final int? minValue;
+  final double? maxValue;
+  final double? minValue;
   const CartPageState(
       {required this.version,
       required this.cartItems,
@@ -14,7 +14,9 @@ class CartPageState extends Equatable {
       this.minValue});
 
   CartPageState exchangeWith(
-      {required Map<Product, int> cartItems, int? maxValue, int? minValue}) {
+      {required Map<Product, int> cartItems,
+      double? maxValue,
+      double? minValue}) {
     return CartPageState(
         version: version + 1,
         cartItems: cartItems,

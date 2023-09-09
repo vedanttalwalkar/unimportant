@@ -25,21 +25,45 @@ class _CartPageScreenState extends State<CartPageScreen> {
       ),
       body: BlocBuilder<CartPageBloc, CartPageState>(
         builder: (context, state) {
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              var product = state.cartItems.keys.elementAt(index);
-              var value = state.cartItems[product];
-              return ListTile(
-                onTap: () {
-                  setState(() {});
-                  cartBloc.add(RemoveFromCart(product: product));
-                },
-                title: Text(product.name),
-                trailing: Text(value.toString()),
-                subtitle: Text(product.price.toString()),
-              );
-            },
-            itemCount: state.cartItems.length,
+          return Column(
+            children: [
+              Slider(
+                  min: 0,
+                  max: 25000,
+                  value: state.minValue ?? 0,
+                  onChanged: (value) {
+                    cartBloc.add(
+                        FilterCart(minValue: value, maxValue: state.maxValue));
+                  }),
+              Slider(
+                  min: 0,
+                  max: 25000,
+                  value: state.maxValue ?? 25000,
+                  onChanged: (value) {
+                    cartBloc.add(FilterCart(
+                      maxValue: value,
+                      minValue: state.minValue,
+                    ));
+                  }),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    var product = state.cartItems.keys.elementAt(index);
+                    var value = state.cartItems[product];
+                    return ListTile(
+                      onTap: () {
+                        cartBloc.add(RemoveFromCart(product: product));
+                      },
+                      title: Text(product.name),
+                      trailing: Text(value.toString()),
+                      subtitle: Text(product.price.toString()),
+                    );
+                  },
+                  itemCount: state.cartItems.length,
+                ),
+              ),
+            ],
           );
         },
       ),

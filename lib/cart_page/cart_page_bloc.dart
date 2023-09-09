@@ -11,7 +11,7 @@ class CartPageBloc extends Bloc<CartPageEvent, CartPageState> {
       emit(state.exchangeWith(cartItems: cartItems));
     });
     on<FilterCart>((event, emit) {
-      var filteredCart = {};
+      Map<Product, int> filteredCart = {};
       cartItems.forEach((key, value) {
         bool meetsMaxValueCondition =
             event.maxValue == null || event.maxValue! > key.price;
@@ -20,6 +20,10 @@ class CartPageBloc extends Bloc<CartPageEvent, CartPageState> {
         if (meetsMinValueCondition && meetsMaxValueCondition) {
           filteredCart[key] = value;
         }
+        emit(state.exchangeWith(
+            cartItems: filteredCart,
+            minValue: event.minValue,
+            maxValue: event.maxValue));
       });
     });
 
