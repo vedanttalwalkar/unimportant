@@ -2,7 +2,6 @@ import 'package:delete_this/cart_page/cart_page_bloc.dart';
 import 'package:delete_this/cart_page/cart_page_event.dart';
 import 'package:delete_this/cart_page/cart_page_state.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartPageScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _CartPageScreenState extends State<CartPageScreen> {
     cartBloc.add(LoadCart());
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text('Cart'),
         ),
       ),

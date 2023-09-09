@@ -41,13 +41,13 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 247, 246, 239),
       appBar: AppBar(
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Stack(
               alignment: Alignment.topRight,
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Icon(
                     Icons.shopping_cart,
@@ -159,12 +159,12 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
                                         onPressed: () {
                                           productBloc.add(RemoveItems(product));
                                         },
-                                        icon: Icon(Icons.remove)),
+                                        icon: const Icon(Icons.remove)),
                                     IconButton.filled(
                                         onPressed: () {
                                           productBloc.add(AddItems(product));
                                         },
-                                        icon: Icon(Icons.add)),
+                                        icon: const Icon(Icons.add)),
                                   ],
                                 ),
                               ),
@@ -188,10 +188,10 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
             IconButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return CartPage();
+                    return const CartPage();
                   }));
                 },
-                icon: Icon(Icons.shopping_bag)),
+                icon: const Icon(Icons.shopping_bag)),
           ],
         ),
       ),

@@ -32,5 +32,6 @@ class AddItems extends ProductListEvent {
 class RemoveItems extends ProductListEvent {
   final Product product;
   const RemoveItems(this.product);
+  @override
   List<Object?> get props => [product];
 }
