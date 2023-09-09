@@ -1,5 +1,4 @@
-import 'package:delete_this/cart_page/cart_page_main_page.dart';
-
+import 'package:delete_this/cart_page/cart_page_main.dart';
 import 'package:delete_this/product_page/product_bloc.dart';
 import 'package:delete_this/product_page/product_event.dart';
 import 'package:delete_this/product_page/product_state.dart';
@@ -189,7 +188,7 @@ class _ProductMainScreenState extends State<ProductMainScreen> {
             IconButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return CartPageMainPage();
+                    return CartPage();
                   }));
                 },
                 icon: Icon(Icons.shopping_bag)),

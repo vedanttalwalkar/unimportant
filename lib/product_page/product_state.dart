@@ -19,7 +19,6 @@ class ProductListState extends Equatable {
     this.nameFilter,
   });
 
-
   @override
   List<Object?> get props => [
         products,

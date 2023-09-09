@@ -263,6 +263,7 @@ class ProductBloc extends Bloc<ProductListEvent, ProductListState> {
   }
 
   ProductBloc() : super(const ProductListState(products: [])) {
+  
     on<LoadProducts>((event, emit) =>
         emit(state.exhangeWith(products: completeListGiver())));
     on<AddItems>((event, emit) {

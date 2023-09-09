@@ -25,6 +25,7 @@ class ApplyFilters extends ProductListEvent {
 class AddItems extends ProductListEvent {
   final Product product;
   const AddItems(this.product);
+  @override
   List<Object?> get props => [product];
 }
 

@@ -1,5 +1,6 @@
-import 'package:delete_this/product.dart';
 import 'package:equatable/equatable.dart';
+
+import '../product.dart';
 
 class CartPageEvent extends Equatable {
   const CartPageEvent();
@@ -10,17 +11,19 @@ class CartPageEvent extends Equatable {
 
 class LoadCart extends CartPageEvent {}
 
-class RemoveItems extends CartPageEvent {
+class RemoveFromCart extends CartPageEvent {
   final Product product;
-  const RemoveItems({required this.product});
 
+  const RemoveFromCart({required this.product});
   @override
   List<Object?> get props => [product];
 }
 
-class SortAscending extends CartPageEvent {
-  final bool? sort;
-  const SortAscending({this.sort});
+class FilterCart extends CartPageEvent {
+  final int? maxValue;
+  final int? minValue;
+
+  const FilterCart({this.maxValue, this.minValue});
   @override
-  List<Object?> get props => [sort];
+  List<Object?> get props => [maxValue, minValue];
 }
